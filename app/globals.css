@@ -1,5 +1,6 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -58,11 +59,9 @@
     background-color: #4285f4;
     transition: background-color 0.2s;
   }
-
   .btn-google-primary:hover {
     background-color: #1a73e8;
   }
-
   .btn-google-secondary {
     display: inline-flex;
     align-items: center;
@@ -76,7 +75,6 @@
     border: 1px solid #dadce0;
     transition: background-color 0.2s;
   }
-
   .btn-google-secondary:hover {
     background-color: #f8f9fa;
   }
