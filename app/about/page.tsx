@@ -23,7 +23,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full bg-gradient-to-br from-google-gray-100 to-google-gray-200 overflow-hidden shadow-lg ring-4 ring-white">
                   <Image
-                    src="/profile.png"
+                    src="/profile.jpg"
                     alt="Chetan Kalakappa Ronad"
                     width={192}
                     height={192}
