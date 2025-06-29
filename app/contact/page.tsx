@@ -79,14 +79,20 @@ export default function ContactPage() {
                   type="button"
                   className="flex items-center space-x-3 w-full text-left hover:bg-google-gray-100 rounded-xl p-2 transition-colors duration-200"
                   onClick={() => {
-                    navigator.clipboard.writeText("chetankronad06@gmail.com")
+                  navigator.clipboard.writeText("chetankronad06@gmail.com")
+                  toast("Email copied!", {
+                    description: "chetankronad06@gmail.com copied to clipboard.",
+                    className: "bg-blue-100 border border-blue-300 text-blue-800 font-roboto shadow-lg",
+                    duration: 3000,
+                    position: "top-right",
+                  })
                   }}
                   title="Copy Email"
                 >
                   <Mail className="h-5 w-5 text-google-blue-500" />
                   <div>
-                    <p className="font-medium text-google-gray-900 font-inter">Email</p>
-                    <p className="text-google-gray-600 font-roboto text-sm">chetankronad06@gmail.com</p>
+                  <p className="font-medium text-google-gray-900 font-inter">Email</p>
+                  <p className="text-google-gray-600 font-roboto text-sm">chetankronad06@gmail.com</p>
                   </div>
                 </button>
 
