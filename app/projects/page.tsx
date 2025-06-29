@@ -81,7 +81,7 @@ export default function ProjectsPage() {
         <div className="text-center space-y-4">
           <h1 className="text-4xl lg:text-5xl font-normal text-google-gray-900 font-inter">My Projects</h1>
           <p className="text-lg text-google-gray-600 font-roboto">
-            Here are some of the projects I've worked on recently
+            Here are some of the projects I&apos;ve worked on recently
           </p>
         </div>
 

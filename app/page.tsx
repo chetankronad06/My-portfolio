@@ -48,7 +48,7 @@ export default function HomePage() {
               <div className="relative">
                 <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-google-gray-100 to-google-gray-200 overflow-hidden">
                   <Image
-                    src="/profile.png"
+                    src="/profile.jpg"
                     alt="Chetan Kalakappa Ronad"
                     width={400}
                     height={400}

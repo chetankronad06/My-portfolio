@@ -46,7 +46,7 @@ export default function AboutPage() {
                     <h2 className="text-2xl font-medium mb-4 text-google-gray-900 font-inter">Who I Am</h2>
                     <div className="space-y-4 text-google-gray-700 font-roboto leading-relaxed">
                       <p>
-                        Hello! I'm Chetan Kalakappa Ronad, a passionate full-stack developer with a keen interest in
+                        Hello! I&#39;m Chetan Kalakappa Ronad, a passionate full-stack developer with a keen interest in
                         creating innovative web solutions. I specialize in modern web technologies and have a strong
                         foundation in both frontend and backend development.
                       </p>
@@ -56,7 +56,7 @@ export default function AboutPage() {
                         intuitive solutions.
                       </p>
                       <p>
-                        When I'm not coding, you'll find me exploring new technologies, contributing to open-source
+                        When I&#39;m not coding, you&#39;ll find me exploring new technologies, contributing to open-source
                         projects, or learning about the latest trends in AI and blockchain technology.
                       </p>
                     </div>
@@ -66,7 +66,7 @@ export default function AboutPage() {
                 <Card className="bg-white border border-google-gray-200 rounded-xl">
                   <CardContent className="p-6">
                     <h2 className="text-2xl font-medium mb-4 text-google-gray-900 font-inter">
-                      What I'm Currently Working On
+                      What I&#39;m Currently Working On
                     </h2>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
