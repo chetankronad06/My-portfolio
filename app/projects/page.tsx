@@ -1,8 +1,11 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 const projects = [
   {
@@ -74,83 +77,206 @@ const projects = [
 ]
 
 export default function ProjectsPage() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
   return (
-    <div className="min-h-screen p-4 lg:p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl lg:text-5xl font-normal text-google-gray-900 font-inter">My Projects</h1>
-          <p className="text-lg text-google-gray-600 font-roboto">
-            Here are some of the projects I&apos;ve worked on recently
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Section - Google Material Theme */}
+      <div
+        className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 rounded-3xl m-6 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+      >
+        {/* Subtle geometric patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className={`absolute top-10 left-10 w-32 h-32 border border-blue-200 rounded-full transition-all duration-1000 delay-300 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+          ></div>
+          <div
+            className={`absolute top-20 right-20 w-24 h-24 border border-indigo-200 rounded-full transition-all duration-1000 delay-500 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+          ></div>
+          <div
+            className={`absolute bottom-10 left-1/3 w-16 h-16 border border-blue-300 rounded-full transition-all duration-1000 delay-700 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+          ></div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-lg transition-shadow duration-300 bg-white border border-google-gray-200 rounded-xl"
+        {/* Header Content */}
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-center space-y-4">
+            <h1
+              className={`text-4xl lg:text-5xl font-medium text-gray-900 transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="bg-white/90 text-gray-800">
-                    {project.category}
-                  </Badge>
-                </div>
-              </div>
+              My Projects
+            </h1>
+            <p
+              className={`text-lg text-blue-600 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            >
+              Here are some of the projects I've worked on recently
+            </p>
+          </div>
+        </div>
+      </div>
 
-              <CardHeader>
-                <CardTitle className="text-xl text-google-gray-900 font-inter">{project.title}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                <p className="text-google-gray-600 font-roboto text-sm">{project.description}</p>
-
-                <div>
-                  <h4 className="font-semibold text-google-gray-900 font-inter mb-2">Tech Stack:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
+      <div className="relative -mt-20 px-4 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-32">
+            {projects.map((project, index) => (
+              <Card
+                key={index}
+                className={`group bg-white shadow-sm border border-gray-200 rounded-3xl overflow-hidden hover:shadow-lg hover:scale-105 transition-all duration-200 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                style={{
+                  transitionDelay: isLoaded ? "0ms" : `${600 + index * 150}ms`,
+                }}
+              >
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-200"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <Badge
+                      className={`bg-blue-50 text-blue-700 border border-blue-200 transition-all duration-300 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
+                      style={{
+                        transitionDelay: `${800 + index * 150}ms`,
+                      }}
+                    >
+                      {project.category}
+                    </Badge>
                   </div>
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-google-gray-900 font-inter mb-2">Key Features:</h4>
-                  <ul className="text-google-gray-600 font-roboto space-y-1 text-sm">
-                    {project.features.slice(0, 3).map((feature, featureIndex) => (
-                      <li key={featureIndex}>• {feature}</li>
-                    ))}
-                  </ul>
-                </div>
+                <CardHeader className="pb-4">
+                  <CardTitle
+                    className={`text-xl text-gray-900 font-medium transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    style={{
+                      transitionDelay: `${900 + index * 150}ms`,
+                    }}
+                  >
+                    {project.title}
+                  </CardTitle>
+                </CardHeader>
 
-                <div className="flex gap-2 pt-2">
-                  <Button size="sm" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button size="sm" variant="outline" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-1" />
-                      Code
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                <CardContent className="space-y-6">
+                  <p
+                    className={`text-gray-600 text-sm leading-relaxed transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    style={{
+                      transitionDelay: `${1000 + index * 150}ms`,
+                    }}
+                  >
+                    {project.description}
+                  </p>
+
+                  <div
+                    className={`transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    style={{
+                      transitionDelay: `${1100 + index * 150}ms`,
+                    }}
+                  >
+                    <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                      <div className="w-1 h-4 bg-blue-500 rounded-full"></div>
+                      Tech Stack
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, techIndex) => (
+                        <Badge
+                          key={techIndex}
+                          variant="outline"
+                          className="text-xs bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 transition-colors duration-200"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div
+                    className={`transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    style={{
+                      transitionDelay: `${1200 + index * 150}ms`,
+                    }}
+                  >
+                    <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                      <div className="w-1 h-4 bg-green-500 rounded-full"></div>
+                      Key Features
+                    </h4>
+                    <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100">
+                      <ul className="text-gray-700 space-y-2 text-sm">
+                        {project.features.slice(0, 3).map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`flex gap-3 pt-2 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    style={{
+                      transitionDelay: `${1300 + index * 150}ms`,
+                    }}
+                  >
+                    <Button
+                      size="sm"
+                      asChild
+                      className="bg-indigo-500 hover:bg-indigo-600 text-white rounded-2xl flex-1 transition-all duration-200 hover:scale-105"
+                    >
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      asChild
+                      className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-2xl flex-1 transition-all duration-200 hover:scale-105 bg-transparent"
+                    >
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Bottom Section */}
+          <div
+            className={`text-center py-16 transition-all duration-1000 delay-2000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
+              <h3 className="text-2xl  text-gray-900 font-bold mb-4">Want to see more?</h3>
+              <p className="text-gray-600 mb-6">
+                These are just a few highlights from my portfolio. I'm always working on new projects and exploring
+                different technologies.
+              </p>
+                <Button
+                className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl px-8 transition-all duration-200 hover:scale-105"
+                asChild
+                >
+                <a
+                  href="https://github.com/chetankronad06?tab=repositories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-4 h-4 mr-2" />
+                  View All Projects on GitHub
+                </a>
+                </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

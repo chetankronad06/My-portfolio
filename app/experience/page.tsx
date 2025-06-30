@@ -1,6 +1,9 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Trophy, Users } from "lucide-react"
+import { Calendar, MapPin, ExternalLink } from "lucide-react"
+import { useEffect, useState } from "react"
 
 const experiences = [
   {
@@ -32,37 +35,6 @@ const experiences = [
       "Implemented accessibility standards",
     ],
     tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Chart.js"],
-  },
-]
-
-const achievements = [
-  {
-    title: "Smart India Hackathon 2024",
-    description: "Winner - Built an AI-powered solution for traffic management",
-    date: "March 2024",
-    type: "Hackathon",
-    icon: Trophy,
-  },
-  {
-    title: "Open Source Contributor",
-    description: "Contributed to 15+ open source projects with 100+ commits",
-    date: "Ongoing",
-    type: "Open Source",
-    icon: Users,
-  },
-  {
-    title: "CodeChef Contest",
-    description: "3-star rating with consistent top 10% rankings",
-    date: "2023-2024",
-    type: "Competitive Programming",
-    icon: Trophy,
-  },
-  {
-    title: "Tech Lead - College Club",
-    description: "Led a team of 20+ students in organizing tech events",
-    date: "2023-2024",
-    type: "Leadership",
-    icon: Users,
   },
 ]
 
@@ -98,147 +70,275 @@ const certifications = [
 ]
 
 export default function ExperiencePage() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
   return (
-    <div className="min-h-screen p-4 lg:p-8">
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl lg:text-5xl font-normal text-google-gray-900 font-inter">
-            Experience & Achievements
-          </h1>
-          <p className="text-lg text-google-gray-600 font-roboto">My professional journey and accomplishments</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Section - Google Material Theme */}
+      <div
+        className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 m-6 rounded-3xl ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+      >
+        {/* Subtle geometric patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className={`absolute top-10 left-10 w-32 h-32 border border-blue-200 rounded-full transition-all duration-1000 delay-300 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+          ></div>
+          <div
+            className={`absolute top-20 right-20 w-24 h-24 border border-indigo-200 rounded-full transition-all duration-1000 delay-500 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+          ></div>
+          <div
+            className={`absolute bottom-10 left-1/3 w-16 h-16 border border-blue-300 rounded-full transition-all duration-1000 delay-700 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+          ></div>
         </div>
 
-        {/* Work Experience */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-medium text-google-gray-900 font-inter">Work Experience</h2>
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <Card
-                key={index}
-                className="bg-white border border-google-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div>
-                      <CardTitle className="text-xl text-google-gray-900 font-inter">{exp.title}</CardTitle>
-                      <p className="text-lg font-medium text-google-blue-600 font-roboto">{exp.company}</p>
-                    </div>
-                    <div className="flex flex-col md:items-end gap-2">
-                      <Badge
-                        variant={exp.type === "Internship" ? "default" : "secondary"}
-                        className={
-                          exp.type === "Internship"
-                            ? "bg-google-blue-500 text-white"
-                            : "bg-google-gray-100 text-google-gray-800"
-                        }
-                      >
-                        {exp.type}
-                      </Badge>
-                      <div className="flex items-center gap-4 text-sm text-google-gray-600 font-roboto">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {exp.duration}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4" />
-                          {exp.location}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-google-gray-700 font-roboto">{exp.description}</p>
+        {/* Header Content */}
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-center space-y-4">
+            <h1
+              className={`text-4xl lg:text-5xl font-medium text-gray-900 transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            >
+              Experience & Certifications
+            </h1>
+            <p
+              className={`text-lg text-blue-500 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            >
+              My professional journey and accomplishments
+            </p>
+          </div>
+        </div>
+      </div>
 
-                  <div>
-                    <h4 className="font-medium text-google-gray-900 font-inter mb-2">Key Achievements:</h4>
-                    <ul className="space-y-1">
-                      {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="text-google-gray-700 font-roboto text-sm">
-                          • {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-medium text-google-gray-900 font-inter mb-2">Technologies Used:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          variant="outline"
-                          className="border-google-gray-300 text-google-gray-700"
+      <div className="relative -mt-24 px-4 lg:px-8">
+        <div className="max-w-6xl mx-auto space-y-12 pt-32">
+          {/* Work Experience */}
+          <section className="space-y-8">
+            <h2
+              className={`text-3xl font-bold text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
+            >
+              <div
+                className={`w-2 h-8 bg-blue-500 rounded-full transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+              ></div>
+              Work Experience
+            </h2>
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <Card
+                  key={index}
+                  className={`bg-white shadow-sm border border-gray-200 rounded-3xl hover:shadow-lg hover:scale-105 transition-all duration-200 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                  style={{
+                    transitionDelay: isLoaded ? "0ms" : `${800 + index * 200}ms`,
+                  }}
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                      <div>
+                        <CardTitle
+                          className={`text-xl text-gray-900 font-medium transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                          style={{
+                            transitionDelay: `${900 + index * 200}ms`,
+                          }}
                         >
-                          {tech}
+                          {exp.title}
+                        </CardTitle>
+                        <p
+                          className={`text-lg font-medium text-indigo-600 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                          style={{
+                            transitionDelay: `${1000 + index * 200}ms`,
+                          }}
+                        >
+                          {exp.company}
+                        </p>
+                      </div>
+                      <div className="flex flex-col md:items-end gap-2">
+                        <Badge
+                          className={`${
+                            exp.type === "Internship"
+                              ? "bg-blue-50 text-green-700 border border-green-200"
+                              : "bg-green-50 text-green-700 border border-green-200"
+                          } transition-all duration-1000 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
+                          style={{
+                            transitionDelay: `${1100 + index * 200}ms`,
+                          }}
+                        >
+                          {exp.type}
                         </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Achievements */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-medium text-google-gray-900 font-inter">Achievements</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {achievements.map((achievement, index) => (
-              <Card
-                key={index}
-                className="bg-white border border-google-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <achievement.icon className="h-8 w-8 text-google-blue-500" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-medium text-google-gray-900 font-inter mb-1">{achievement.title}</h3>
-                      <p className="text-google-gray-600 font-roboto text-sm mb-2">{achievement.description}</p>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="text-xs border-google-gray-300 text-google-gray-700">
-                          {achievement.type}
-                        </Badge>
-                        <span className="text-xs text-google-gray-500 font-roboto">{achievement.date}</span>
+                        <div
+                          className={`flex items-center gap-4 text-sm text-gray-600 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                          style={{
+                            transitionDelay: `${1200 + index * 200}ms`,
+                          }}
+                        >
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-4 w-4" />
+                            {exp.duration}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="h-4 w-4" />
+                            {exp.location}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+                  </CardHeader>
 
-        {/* Certifications */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-medium text-google-gray-900 font-inter">Certifications</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((cert, index) => (
-              <Card
-                key={index}
-                className="bg-white border border-google-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardContent className="p-6">
-                  <div className="space-y-3">
-                    <h3 className="font-medium text-google-gray-900 font-inter">{cert.title}</h3>
-                    <p className="text-google-blue-600 font-medium font-roboto">{cert.issuer}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-google-gray-600 font-roboto">Issued: {cert.date}</span>
-                      <Badge variant="outline" className="text-xs border-green-300 text-green-700 bg-green-50">
-                        Verified
-                      </Badge>
+                  <CardContent className="space-y-6">
+                    <p
+                      className={`text-gray-700 leading-relaxed transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                      style={{
+                        transitionDelay: `${1300 + index * 200}ms`,
+                      }}
+                    >
+                      {exp.description}
+                    </p>
+
+                    <div
+                      className={`transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                      style={{
+                        transitionDelay: `${1400 + index * 200}ms`,
+                      }}
+                    >
+                      <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                        <div className="w-1 h-4 bg-blue-500 rounded-full"></div>
+                        Key Achievements
+                      </h4>
+                      <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100">
+                        <ul className="space-y-2">
+                          {exp.achievements.map((achievement, achIndex) => (
+                            <li key={achIndex} className="text-gray-700 text-sm flex items-center gap-2">
+                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                              {achievement}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <p className="text-xs text-google-gray-500 font-roboto">Credential ID: {cert.credentialId}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+
+                    <div
+                      className={`transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                      style={{
+                        transitionDelay: `${1500 + index * 200}ms`,
+                      }}
+                    >
+                      <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
+                        <div className="w-1 h-4 bg-blue-500 rounded-full"></div>
+                        Technologies Used
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.tech.map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            variant="outline"
+                            className="text-xs bg-blue-50 text-gray-700 border-blue-200 hover:bg-blue-100 transition-colors duration-200"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Certifications */}
+          <section className="space-y-8">
+            <h2
+              className={`text-3xl font-bold text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-1000 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
+            >
+              <div
+                className={`w-2 h-8 bg-blue-500 rounded-full transition-all duration-1000 delay-1100 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+              ></div>
+              Certifications
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {certifications.map((cert, index) => (
+                <Card
+                  key={index}
+                  className={`bg-white shadow-sm border border-gray-200 rounded-3xl hover:shadow-lg hover:scale-105 transition-all duration-200 group ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                  style={{
+                    transitionDelay: isLoaded ? "0ms" : `${1200 + index * 150}ms`,
+                  }}
+                >
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <h3
+                        className={`font-medium text-gray-900 text-lg transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                        style={{
+                          transitionDelay: `${1300 + index * 150}ms`,
+                        }}
+                      >
+                        {cert.title}
+                      </h3>
+
+                      <p
+                        className={`text-indigo-600 font-medium transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                        style={{
+                          transitionDelay: `${1400 + index * 150}ms`,
+                        }}
+                      >
+                        {cert.issuer}
+                      </p>
+
+                      <div
+                        className={`bg-blue-50 rounded-2xl p-4 border border-blue-100 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                        style={{
+                          transitionDelay: `${1500 + index * 150}ms`,
+                        }}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm text-gray-600">Issued: {cert.date}</span>
+                          <Badge className="text-xs bg-green-50 text-green-700 border border-green-200">Verified</Badge>
+                        </div>
+                        <p className="text-xs text-gray-500">Credential ID: {cert.credentialId}</p>
+                      </div>
+
+                      <div
+                        className={`flex items-center justify-between pt-2 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                        style={{
+                          transitionDelay: `${1600 + index * 150}ms`,
+                        }}
+                      >
+                        <a
+                          href={cert.link}
+                          className="text-indigo-600 hover:text-indigo-700 text-sm font-medium flex items-center gap-1 transition-colors duration-200 group-hover:scale-105"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Certificate
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Bottom Section */}
+          <div
+            className={`text-center py-16 transition-all duration-1000 delay-2000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to collaborate?</h3>
+              <p className="text-gray-600 mb-6">
+                I'm always open to discussing new opportunities and exciting projects. Let's connect and build something
+                amazing together.
+              </p>
+              <div className="flex gap-4 justify-center">
+                <Badge className="bg-blue-50 text-indigo-700 border border-blue-200 px-4 py-2">
+                  Available for opportunities
+                </Badge>
+                <Badge className="bg-green-50 text-green-700 border border-green-200 px-4 py-2">
+                  Open to freelance
+                </Badge>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   )

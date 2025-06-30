@@ -1,298 +1,382 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { MapPin, Calendar, Heart, Code, Lightbulb, Users, Palette, Zap, Globe } from "lucide-react"
+import { GraduationCap, Award, Users, Star } from "lucide-react"
 import Image from "next/image"
-import { PageWrapper } from "@/components/page-wrapper"
+import { PageWrapper } from "./components/page-wrapper"
+import { useEffect, useState } from "react"
 
 export default function AboutPage() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
   return (
     <PageWrapper>
-      <div className="min-h-screen bg-white">
-        <div className="p-4 lg:p-8">
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* Header */}
-            <div className="text-center space-y-4">
-              <h1 className="text-4xl lg:text-5xl font-normal text-google-gray-900 font-inter">About Me</h1>
-              <p className="text-lg text-google-gray-600 font-roboto">
-                Get to know more about who I am and what drives me
-              </p>
-            </div>
+      <div className="min-h-screen bg-gray-50">
+        {/* Header Section - Google Material Theme */}
+        <div
+          className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+        >
+          {/* Optional Background Image - Commented Out */}
+          {/* 
+          <div className="absolute inset-0">
+            <Image
+              src="/cover-bg.jpg"
+              alt="Cover Background"
+              fill
+              className="object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/80 to-indigo-50/80"></div>
+          </div>
+          */}
 
-            {/* Profile Image */}
-            <div className="flex justify-center">
-              <div className="relative">
-                <div className="w-40 h-40 lg:w-48 lg:h-48 rounded-full bg-gradient-to-br from-google-gray-100 to-google-gray-200 overflow-hidden shadow-lg ring-4 ring-white">
+          {/* Subtle geometric patterns */}
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className={`absolute top-10 left-10 w-32 h-32 border border-blue-200 rounded-full transition-all duration-1000 delay-300 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+            ></div>
+            <div
+              className={`absolute top-20 right-20 w-24 h-24 border border-indigo-200 rounded-full transition-all duration-1000 delay-500 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+            ></div>
+            <div
+              className={`absolute bottom-10 left-1/3 w-16 h-16 border border-blue-300 rounded-full transition-all duration-1000 delay-700 ${isLoaded ? "opacity-10 scale-100" : "opacity-0 scale-75"}`}
+            ></div>
+          </div>
+        </div>
+
+        <div className="relative -mt-32 px-4 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            {/* Profile Header Card */}
+            <Card
+              className={`bg-white shadow-sm border border-gray-200 rounded-3xl overflow-hidden mb-8 mx-auto max-w-3xl transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+            >
+              <CardContent className="p-0">
+              <div className="p-6 lg:p-8">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
+                {/* Profile Image - Clean without decorative elements */}
+                <div className="relative flex-shrink-0">
+                  <div
+                  className={`w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden shadow-sm ring-1 ring-gray-200 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-12"}`}
+                  >
                   <Image
-                    src="/profile.jpg"
+                    src="/profile.jpg?height=160&width=160"
                     alt="Chetan Kalakappa Ronad"
-                    width={192}
-                    height={192}
+                    width={160}
+                    height={160}
                     className="w-full h-full object-cover"
                   />
+                  </div>
                 </div>
-                {/* Decorative elements */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-google-blue-500 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-google-green-500 rounded-full opacity-80"></div>
-                <div className="absolute top-1/2 -right-6 w-4 h-4 bg-purple-500 rounded-full opacity-60"></div>
+
+                {/* Profile Info - Simplified */}
+                <div className="flex-1 space-y-4">
+                  <div>
+                    <h1
+                      className={`text-3xl lg:text-4xl font-medium text-gray-900 mb-2 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+                    >
+                      Chetan Kalakappa Ronad
+                    </h1>
+                    <p
+                      className={`text-xl text-blue-600 font-normal mb-4 transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+                    >
+                      Full-Stack Developer & AI Enthusiast
+                    </p>
+                  </div>
+                  <div
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-200 text-green-700 font-semibold text-sm shadow-sm transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+                  >
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    Available for work
+                  </div>
+                </div>
+                </div>
               </div>
-            </div>
+              </CardContent>
+            </Card>
 
-            {/* Main Content */}
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Personal Info */}
-              <div className="lg:col-span-2 space-y-6">
-                <Card className="bg-white border border-google-gray-200 rounded-xl">
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-medium mb-4 text-google-gray-900 font-inter">Who I Am</h2>
-                    <div className="space-y-4 text-google-gray-700 font-roboto leading-relaxed">
-                      <p>
-                        Hello! I&#39;m Chetan Kalakappa Ronad, a passionate full-stack developer with a keen interest in
-                        creating innovative web solutions. I specialize in modern web technologies and have a strong
-                        foundation in both frontend and backend development.
+            {/* Dynamic Grid Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              {/* About Me Section - Spans 8 columns */}
+              <div className="lg:col-span-8">
+                <Card
+                  className={`bg-white shadow-sm border border-gray-200 rounded-3xl h-full transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                >
+                  <CardContent className="p-6 lg:p-8">
+                    <h2
+                      className={`text-2xl font-bold mb-6 text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-800 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
+                    >
+                      <div
+                        className={`w-2 h-8 bg-blue-500 rounded-full transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+                      ></div>
+                      About Me
+                    </h2>
+                    <div
+                      className={`space-y-4 text-gray-700 leading-relaxed p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    >
+                      <p
+                        className={`transition-all duration-1000 delay-1100 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                      >
+                        Hello! I&#39;m Chetan Kalakappa Ronad, a full-stack developer passionate about building clean,
+                        functional, and user-focused web solutions. I enjoy turning ideas into reality through code and
+                        creating intuitive digital experiences.
                       </p>
-                      <p>
-                        My journey in tech started with curiosity about how websites work, which led me to dive deep
-                        into programming. I love the challenge of turning complex problems into simple, beautiful, and
-                        intuitive solutions.
+                      <p
+                        className={`transition-all duration-1000 delay-1200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                      >
+                        My journey into development began with curiosity about how websites work. That interest quickly
+                        evolved into a love for building, learning, and solving real-world problems through design and
+                        development.
                       </p>
-                      <p>
-                        When I&#39;m not coding, you&#39;ll find me exploring new technologies, contributing to open-source
-                        projects, or learning about the latest trends in AI and blockchain technology.
+                      <p
+                        className={`transition-all duration-1000 delay-1300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                      >
+                        Beyond development, I&#39;m interested in areas like AI, blockchain, and system design. I&#39;m actively
+                        working toward high-impact roles and enjoy taking part in hackathons that challenge creativity
+                        and problem-solving.
+                      </p>
+                      <p
+                        className={`transition-all duration-1000 delay-1400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}
+                      >
+                        When I&#39;m not coding, I spend time exploring new technologies, contributing to open-source
+                        projects, and staying updated with the latest trends in tech and product innovation.
                       </p>
                     </div>
                   </CardContent>
                 </Card>
+              </div>
 
-                <Card className="bg-white border border-google-gray-200 rounded-xl">
+              {/* Quick Stats - Spans 4 columns */}
+              <div className="lg:col-span-4">
+                <Card
+                  className={`bg-white shadow-sm border border-gray-200 rounded-3xl h-full transition-all duration-1000 delay-800 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                >
                   <CardContent className="p-6">
-                    <h2 className="text-2xl font-medium mb-4 text-google-gray-900 font-inter">
-                      What I&#39;m Currently Working On
+                    <h2
+                      className={`text-2xl font-bold mb-6 text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-900 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"}`}
+                    >
+                      <div
+                        className={`w-2 h-8 bg-blue-500 rounded-full transition-all duration-1000 delay-1000 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+                      ></div>
+                      Quick stats
                     </h2>
-                    <div className="space-y-4">
-                      <div className="flex items-start space-x-3">
-                        <Code className="h-5 w-5 text-google-blue-500 mt-1" />
-                        <div>
-                          <h3 className="font-medium text-google-gray-900 font-inter">Full-Stack Web Applications</h3>
-                          <p className="text-sm text-google-gray-600 font-roboto">
-                            Building scalable web applications using React, Node.js, and modern databases
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <Lightbulb className="h-5 w-5 text-google-green-500 mt-1" />
-                        <div>
-                          <h3 className="font-medium text-google-gray-900 font-inter">AI/ML Projects</h3>
-                          <p className="text-sm text-google-gray-600 font-roboto">
-                            Exploring machine learning with Python, focusing on computer vision and NLP
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <Users className="h-5 w-5 text-purple-500 mt-1" />
-                        <div>
-                          <h3 className="font-medium text-google-gray-900 font-inter">Open Source Contributions</h3>
-                          <p className="text-sm text-google-gray-600 font-roboto">
-                            Contributing to various open-source projects and maintaining my own repositories
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Additional Skills & Interests Section */}
-                <Card className="bg-white border border-google-gray-200 rounded-xl">
-                  <CardContent className="p-6">
-                    <h2 className="text-2xl font-medium mb-6 text-google-gray-900 font-inter">
-                      Additional Skills & Interests
-                    </h2>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-4">
-                        <div className="border-l-4 border-google-blue-500 pl-4">
-                          <div className="flex items-center space-x-2 mb-3">
-                            <Palette className="h-5 w-5 text-google-blue-500" />
-                            <h3 className="font-medium text-google-gray-900 font-inter">Design</h3>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex flex-wrap gap-2">
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Figma
-                              </Badge>
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Adobe XD
-                              </Badge>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                UI/UX Design
-                              </Badge>
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Responsive Design
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="border-l-4 border-purple-500 pl-4">
-                          <div className="flex items-center space-x-2 mb-3">
-                            <Zap className="h-5 w-5 text-purple-500" />
-                            <h3 className="font-medium text-google-gray-900 font-inter">Blockchain</h3>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex flex-wrap gap-2">
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Solidity
-                              </Badge>
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Web3.js
-                              </Badge>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Smart Contracts
-                              </Badge>
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                DeFi
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
+                    <div className="space-y-6">
+                      <div
+                        className={`text-center p-4 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1100 hover:scale-105 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-5 scale-95"}`}
+                      >
+                        <div className="text-3xl font-bold text-blue-600 mb-1">15+</div>
+                        <div className="text-sm text-gray-600">Projects Completed</div>
                       </div>
 
-                      <div className="space-y-4">
-                        <div className="border-l-4 border-google-green-500 pl-4">
-                          <div className="flex items-center space-x-2 mb-3">
-                            <Globe className="h-5 w-5 text-google-green-500" />
-                            <h3 className="font-medium text-google-gray-900 font-inter">Soft Skills</h3>
-                          </div>
-                          <div className="space-y-2">
-                            <div className="flex flex-wrap gap-2">
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Problem Solving
-                              </Badge>
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Team Collaboration
-                              </Badge>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Communication
-                              </Badge>
-                              <Badge
-                                variant="outline"
-                                className="border-google-gray-300 text-google-gray-700 font-roboto text-xs"
-                              >
-                                Leadership
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
+                      <div
+                        className={`text-center p-4 bg-green-50 rounded-2xl border border-green-100 transition-all duration-1000 delay-1200 hover:scale-105 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-5 scale-95"}`}
+                      >
+                        <div className="text-3xl font-bold text-green-600 mb-1">2+</div>
+                        <div className="text-sm text-gray-600">Years Experience </div>
+                      </div>
 
-                        <div className="bg-google-gray-50 rounded-lg p-4">
-                          <h4 className="font-medium text-google-gray-900 font-inter mb-2 text-sm">Learning Focus</h4>
-                          <ul className="text-xs text-google-gray-600 font-roboto space-y-1">
-                            <li>• Advanced React Patterns</li>
-                            <li>• Cloud Architecture (AWS/GCP)</li>
-                            <li>• DevOps & CI/CD</li>
-                            <li>• System Design</li>
-                          </ul>
-                        </div>
+                      <div
+                        className={`text-center p-4 bg-purple-50 rounded-2xl border border-purple-100 transition-all duration-1000 delay-1300 hover:scale-105 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-5 scale-95"}`}
+                      >
+                        <div className="text-3xl font-bold text-purple-600 mb-1">15+</div>
+                        <div className="text-sm text-gray-600">Technologies</div>
+                      </div>
+
+                      <div
+                        className={`text-center p-4 bg-orange-50 rounded-2xl border border-orange-100 transition-all duration-1000 delay-1400 hover:scale-105 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-5 scale-95"}`}
+                      >
+                        <div className="text-3xl font-bold text-orange-600 mb-1">75+</div>
+                        <div className="text-sm text-gray-600">GitHub Contributions</div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
 
-              {/* Sidebar */}
-              <div className="space-y-6">
-                <Card className="bg-white border border-google-gray-200 rounded-xl">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-medium mb-4 text-google-gray-900 font-inter">Quick Facts</h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-2">
-                        <MapPin className="h-4 w-4 text-google-gray-600" />
-                        <span className="text-sm text-google-gray-700 font-roboto">Based in India</span>
+              {/* Education Section - Spans 7 columns */}
+              <div className="lg:col-span-7">
+                <Card
+                  className={`bg-white shadow-sm border border-gray-200 rounded-3xl transition-all duration-1000 delay-1000 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                >
+                  <CardContent className="p-6 lg:p-8">
+                    <h2
+                      className={`text-2xl font-bold mb-6 text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-1100 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
+                    >
+                      <div
+                        className={`w-2 h-8 bg-blue-500 rounded-full transition-all duration-1000 delay-1200 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+                      ></div>
+                      Education
+                    </h2>
+                    <div className="space-y-6">
+                      <div
+                        className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1300 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+                      >
+                        <div
+                          className={`p-3 bg-blue-500 rounded-2xl transition-all duration-1000 delay-1400 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 rotate-180"}`}
+                        >
+                          <GraduationCap className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3
+                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Bachelor of Technology in Computer Science
+                          </h3>
+                          <p
+                            className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Dayananda Sagar University
+                          </p>
+                          <p
+                            className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            2023 - 2027
+                          </p>
+                          <p
+                            className={`text-sm text-gray-700 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Currently pursuing a degree in Computer Science, with a strong focus on software engineering, data structures, and algorithms. Have completed several impactful projects in web development.
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <Calendar className="h-4 w-4 text-google-gray-600" />
-                        <span className="text-sm text-google-gray-700 font-roboto">Available for opportunities</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Heart className="h-4 w-4 text-red-500" />
-                        <span className="text-sm text-google-gray-700 font-roboto">Loves problem solving</span>
+
+                      <div
+                        className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1400 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+                      >
+                        <div
+                          className={`p-3 bg-blue-500 rounded-2xl transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 rotate-180"}`}
+                        >
+                          <GraduationCap className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3
+                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Pre-University College
+                          </h3>
+                          <p
+                            className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                           Jagadguru Tontadarya P.U. College, Gadag
+                          </p>
+                          <p
+                            className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            2021-2023
+                          </p>
+                          <p
+                            className={`text-sm text-gray-700 transition-all duration-1000 delay-1900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            I pursued my pre-university education with a strong focus on science and mathematics, which helped me develop analytical thinking and problem-solving skills. This phase laid a solid groundwork for my transition into engineering and sparked my interest in building innovative solutions through technology.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
+              </div>
 
-                <Card className="bg-white border border-google-gray-200 rounded-xl">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-medium mb-4 text-google-gray-900 font-inter">Interests</h3>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="bg-google-gray-100 text-google-gray-800 font-roboto">
-                        Web Development
-                      </Badge>
-                      <Badge variant="secondary" className="bg-google-gray-100 text-google-gray-800 font-roboto">
-                        AI/ML
-                      </Badge>
-                      <Badge variant="secondary" className="bg-google-gray-100 text-google-gray-800 font-roboto">
-                        Blockchain
-                      </Badge>
-                      <Badge variant="secondary" className="bg-google-gray-100 text-google-gray-800 font-roboto">
-                        UX/UI Design
-                      </Badge>
-                      <Badge variant="secondary" className="bg-google-gray-100 text-google-gray-800 font-roboto">
-                        Open Source
-                      </Badge>
-                      <Badge variant="secondary" className="bg-google-gray-100 text-google-gray-800 font-roboto">
-                        Cloud Computing
-                      </Badge>
+              {/* Achievements Section - Spans 5 columns */}
+              <div className="lg:col-span-5">
+                <Card
+                  className={`bg-white shadow-sm border border-gray-200 rounded-3xl transition-all duration-1000 delay-1100 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+                >
+                  <CardContent className="p-6 lg:p-8">
+                    <h2
+                      className={`text-2xl font-bold mb-6 text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-1200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"}`}
+                    >
+                      <div
+                        className={`w-2 h-8 bg-blue-500 rounded-full transition-all duration-1000 delay-1300 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-0"}`}
+                      ></div>
+                      Achievements
+                    </h2>
+                    <div className="space-y-6">
+                      <div
+                        className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1400 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+                      >
+                        <div
+                          className={`p-3 bg-indigo-500 rounded-2xl transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
+                        >
+                          <Award className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3
+                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Finalist
+                          </h3>
+                          <p
+                            className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                           Hack-in-bad 2025
+                          </p>
+                          <p
+                            className={`text-sm text-gray-700 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Selected as a finalist in Hack-in-bad, a prestigious hackathon conducted by Techflix at Dayananda Sagar University, for developing an innovative tech solution.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1500 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+                      >
+                        <div
+                          className={`p-3 bg-indigo-500 rounded-2xl transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
+                        >
+                          <Star className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3
+                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Bronze Medal
+                          </h3>
+                          <p
+                            className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                             Devhack 2025
+                          </p>
+                          <p
+                            className={`text-sm text-gray-700 transition-all duration-1000 delay-1900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Secured a Bronze Medal as a finalist in DevHack 2025, part of Parsec 5.0 at IIT Dharwad, for creating a standout solution among top-tier student teams.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1600 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+                      >
+                        <div
+                          className={`p-3 bg-indigo-500 rounded-2xl transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
+                        >
+                          <Users className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h3
+                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Participation
+                          </h3>
+                          <p
+                            className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Nasa&#39;s Space Apps challenge 2024
+                          </p>
+                          <p
+                            className={`text-sm text-gray-700 transition-all duration-1000 delay-2000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                            Participated in the globally recognized NASA Space Apps Challenge 2024, gaining valuable experience in collaborative problem-solving and space-related innovation.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white border border-google-gray-200 rounded-xl">
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-medium mb-4 text-google-gray-900 font-inter">Goals</h3>
-                    <ul className="space-y-2 text-sm text-google-gray-700 font-roboto">
-                      <li>• Master advanced React patterns</li>
-                      <li>• Contribute to major open-source projects</li>
-                      <li>• Build impactful AI-powered applications</li>
-                      <li>• Mentor aspiring developers</li>
-                    </ul>
                   </CardContent>
                 </Card>
               </div>
