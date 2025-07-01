@@ -40,9 +40,9 @@ export default function RootLayout({
           </div>
 
           {/* Mobile Navigation */}
-          <div className="lg:hidden">
+            <div className="lg:hidden sticky top-0 z-50 bg-white">
             <MobileNav />
-          </div>
+            </div>
 
           {/* Main Content */}
           <main className="lg:ml-64 min-h-screen">{children}</main>

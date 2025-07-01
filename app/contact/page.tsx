@@ -70,7 +70,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen mb-16">
       {/* Header Section - Google Material Theme */}
       <div
         className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 m-6 rounded-3xl ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
@@ -97,9 +97,9 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p
-              className={`text-lg text-gray-600 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              className={`text-lg text-blue-600 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              Let's discuss your project or just say hello!
+              Let&apos;s discuss your project or just say hello!
             </p>
           </div>
         </div>
@@ -111,10 +111,7 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div className="space-y-6">
               <Card
-                className={`bg-white shadow-sm border border-gray-200 rounded-3xl ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
-                style={{
-                  transitionDelay: isLoaded ? "0ms" : "600ms",
-                }}
+                className={`bg-white shadow-sm border border-gray-200 rounded-3xl transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
               >
                 <CardHeader>
                   <CardTitle
@@ -131,7 +128,6 @@ export default function ContactPage() {
                   <button
                     type="button"
                     className={`flex items-center space-x-3 w-full text-left hover:bg-blue-50 rounded-2xl p-3 transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
-                    style={{ transitionDelay: isLoaded ? "0ms" : "900ms" }}
                     onClick={() => {
                       navigator.clipboard.writeText("chetankronad06@gmail.com")
                       toast("Email copied to clipboard!", {
@@ -143,7 +139,7 @@ export default function ContactPage() {
                     }}
                     title="Copy Email"
                   >
-                    <div className="p-2 bg-blue-100 rounded-2xl">
+                    <div className="p-2 bg-indigo-100 rounded-2xl">
                       <Mail className="h-5 w-5 text-blue-600" />
                     </div>
                     <div>
@@ -156,7 +152,6 @@ export default function ContactPage() {
                   <a
                     href="tel:+916363073987"
                     className={`flex items-center space-x-3 w-full hover:bg-blue-50 rounded-2xl p-3 transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
-                    style={{ transitionDelay: isLoaded ? "0ms" : "1000ms" }}
                     title="Call or Copy Phone"
                     onClick={() => {
                       navigator.clipboard.writeText("+91 6363073987")
@@ -183,7 +178,6 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center space-x-3 w-full hover:bg-blue-50 rounded-2xl p-3 transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
-                    style={{ transitionDelay: isLoaded ? "0ms" : "1100ms" }}
                     title="Open in Maps"
                   >
                     <div className="p-2 bg-blue-100 rounded-2xl">
@@ -198,10 +192,7 @@ export default function ContactPage() {
               </Card>
 
               <Card
-                className={`bg-white shadow-sm border border-gray-200 rounded-3xl ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
-                style={{
-                  transitionDelay: isLoaded ? "0ms" : "700ms",
-                }}
+                className={`bg-white shadow-sm border border-gray-200 rounded-3xl transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
               >
                 <CardHeader>
                   <CardTitle
@@ -219,11 +210,10 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center space-x-3 p-3 rounded-2xl hover:bg-blue-50 transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
-                    style={{ transitionDelay: isLoaded ? "0ms" : "1000ms" }}
                   >
-                    <div className="p-2 bg-gray-100 rounded-2xl">
+                    <div className="p-2 bg-blue-100 rounded-2xl">
                       <svg
-                        className="h-5 w-5 text-gray-700"
+                        className="h-5 w-5 "
                         role="img"
                         viewBox="0 0 24 24"
                         fill="currentColor"
@@ -241,7 +231,6 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center space-x-3 p-3 rounded-2xl hover:bg-blue-50 transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
-                    style={{ transitionDelay: isLoaded ? "0ms" : "1100ms" }}
                   >
                     <div className="p-2 bg-blue-100 rounded-2xl">
                       <svg
@@ -263,11 +252,10 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex items-center space-x-3 p-3 rounded-2xl hover:bg-blue-50 transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
-                    style={{ transitionDelay: isLoaded ? "0ms" : "1200ms" }}
                   >
                     <div className="p-2 bg-blue-100 rounded-2xl">
                       <svg
-                        className="h-5 w-5 text-blue-400"
+                        className="h-5 w-5 "
                         role="img"
                         viewBox="0 0 24 24"
                         fill="currentColor"
@@ -286,10 +274,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <Card
-                className={`bg-white shadow-sm border border-gray-200 rounded-3xl  ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
-                style={{
-                  transitionDelay: isLoaded ? "0ms" : "800ms",
-                }}
+                className={`bg-white shadow-sm border border-gray-200 rounded-3xl transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
               >
                 <CardHeader>
                   <CardTitle
@@ -351,7 +336,7 @@ export default function ContactPage() {
                         required
                         value={formData.subject}
                         onChange={handleChange}
-                        placeholder="What's this about?"
+                        placeholder="What&apos;s this about?"
                         className="rounded-2xl border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
@@ -378,8 +363,7 @@ export default function ContactPage() {
                       type="submit"
                       size="lg"
                       disabled={isSending}
-                      className={`w-full bg-blue-600 hover:bg-blue-700 text-white rounded-2xl transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-                      style={{ transitionDelay: isLoaded ? "0ms" : "1400ms" }}
+                      className={`w-full bg-blue-500 hover:bg-blue-600 text-white rounded-2xl transition-all duration-200 hover:scale-105 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                     >
                       <Send className="mr-2 h-5 w-5" />
                       {isSending ? "Sending..." : "Send Message"}

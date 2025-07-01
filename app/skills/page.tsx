@@ -26,7 +26,7 @@ export default function Skills() {
 
   return (
     <PageWrapper>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         {/* Header Section - Google Material Theme */}
         <div
           className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 m-6 rounded-3xl ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
@@ -62,7 +62,7 @@ export default function Skills() {
         </div>
 
         <div className="relative -mt-32 px-4 lg:px-8">
-          <div className="max-w-6xl mx-auto space-y-8 pt-32">
+          <div className="max-w-6xl mx-auto space-y-8 pt-32 mb-16">
             {/* Skills Content */}
             <Card
               className={`bg-white shadow-sm border border-gray-200 rounded-3xl transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
@@ -80,7 +80,7 @@ export default function Skills() {
                         Skills and Expertise
                       </h2>
                       <p className="text-gray-600 max-w-[800px] mx-auto">
-                        Explore some skills I'm proficient in to deliver high-quality solutions.
+                        Explore some skills I&apos;m proficient in to deliver high-quality solutions.
                       </p>
                     </div>
 
@@ -91,7 +91,7 @@ export default function Skills() {
                         className={`flex flex-col items-center gap-2 p-6 bg-blue-50 rounded-2xl border border-blue-100 hover:shadow-md hover:scale-105 transition-all duration-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                         style={{ transitionDelay: isLoaded ? "0ms" : "1100ms" }}
                       >
-                        <div className="p-3 bg-indigo-500 rounded-2xl">
+                        <div className="p-3 bg-blue-500 rounded-2xl">
                           <CodepenIcon className="w-8 h-8 text-white" />
                         </div>
                         <div className="font-medium text-gray-900 text-center">Web Development</div>
@@ -101,7 +101,7 @@ export default function Skills() {
                         className={`flex flex-col items-center gap-2 p-6 bg-blue-50 rounded-2xl border border-blue-100 hover:shadow-md hover:scale-105 transition-all duration-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                         style={{ transitionDelay: isLoaded ? "0ms" : "1200ms" }}
                       >
-                        <div className="p-3 bg-indigo-500 rounded-2xl">
+                        <div className="p-3 bg-blue-500 rounded-2xl">
                           <WebhookIcon className="w-8 h-8 text-white" />
                         </div>
                         <div className="font-medium text-gray-900 text-center">REST API</div>
@@ -111,7 +111,7 @@ export default function Skills() {
                         className={`flex flex-col items-center gap-2 p-6 bg-blue-50 rounded-2xl border border-blue-100 hover:shadow-md hover:scale-105 transition-all duration-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                         style={{ transitionDelay: isLoaded ? "0ms" : "1300ms" }}
                       >
-                        <div className="p-3 bg-indigo-500 rounded-2xl">
+                        <div className="p-3 bg-blue-500 rounded-2xl">
                           <ActivityIcon className="w-8 h-8 text-white" />
                         </div>
                         <div className="font-medium text-gray-900 text-center">Machine Learning</div>
@@ -121,7 +121,7 @@ export default function Skills() {
                         className={`flex flex-col items-center gap-2 p-6 bg-blue-50 rounded-2xl border border-blue-100 hover:shadow-md hover:scale-105 transition-all duration-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                         style={{ transitionDelay: isLoaded ? "0ms" : "1400ms" }}
                       >
-                        <div className="p-3 bg-indigo-500 rounded-2xl">
+                        <div className="p-3 bg-blue-500 rounded-2xl">
                           <BlockchainIcon className="w-8 h-8 text-white" />
                         </div>
                         <div className="font-medium text-gray-900 text-center">Blockchain</div>
@@ -144,20 +144,30 @@ export default function Skills() {
                     </h2>
                     <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 hover:shadow-md hover:scale-105 hover:transition-all hover:duration-200 transition-all duration-300">
                       <p className="text-gray-700 text-center leading-relaxed">
-                        <span className="text-gray-900 font-bold">HTML</span> |{" "}
-                        <span className="text-gray-900 font-bold">CSS</span> |{" "}
+                        <span className="text-gray-900 font-medium">HTML</span> |{" "}
+                        <span className="text-gray-900 font-medium">CSS</span> |{" "}
+                        <span className="text-gray-700 font-medium">Python</span> |{" "}
+                        <span className="text-gray-900 font-bold">Java</span> |{" "}
+                        <span className="text-gray-700 font-medium">C Language</span> |{" "}
                         <span className="text-gray-900 font-bold">Javascript</span> |{" "}
                         <span className="text-gray-900 font-bold">Typescript</span> |{" "}
-                        <span className="text-gray-900 font-bold">React</span> |{" "}
+                        <span className="text-gray-900 font-bold">ReactJs</span> |{" "}
                         <span className="text-gray-900 font-bold">NextJS</span> |{" "}
                         <span className="text-gray-900 font-bold">TailwindCSS</span> |{" "}
-                        <span className="text-gray-900 font-bold">Bootstrap</span> |{" "}
+                        <span className="text-gray-700 font-medium">Bootstrap</span> |{" "}
+                        <span className="text-gray-900 font-bold">Shadcn UI</span> |{" "}
                         <span className="text-gray-700 font-medium">NodeJS</span> |{" "}
                         <span className="text-gray-700 font-medium">ExpressJS</span> |{" "}
+                        <span className="text-gray-700 font-medium">Radix UI</span> |{" "}
+                        <span className="text-gray-700 font-medium">Framer Motion</span> |{" "}
                         <span className="text-gray-900 font-bold">MySQL</span> |{" "}
-                        <span className="text-gray-900 font-bold">PostgreSQL</span> |{" "}
+                        <span className="text-gray-900 font-bold">Supabase</span> |{" "}
                         <span className="text-gray-700 font-medium">MongoDB</span> |{" "}
-                        <span className="text-gray-700 font-medium">Python</span>
+                        <span className="text-gray-900 font-bold">Prisma ORM</span> |{" "}
+                        <span className="text-gray-900 font-bold">Clerk Auth</span> |{" "}
+                        <span className="text-gray-700 font-medium">Websockets</span> |{" "}
+                        <span className="text-gray-700 font-medium">RESTful APIs</span> |{" "}
+                        <span className="text-gray-700 font-medium">Vercel</span> 
                       </p>
                     </div>
                   </div>
@@ -174,10 +184,18 @@ export default function Skills() {
                     </h2>
                     <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 hover:shadow-md hover:scale-105 hover:transition-all hover:duration-200 transition-all duration-300">
                       <p className="text-gray-700 text-center leading-relaxed">
-                        <span className="text-gray-900 font-bold">Visual Studio Code</span> |{" "}
+                        <span className="text-gray-900 font-medium">Visual Studio Code</span> |{" "}
                         <span className="text-gray-900 font-bold">Git</span> |{" "}
                         <span className="text-gray-900 font-bold">Github</span> |{" "}
-                        <span className="text-gray-700 font-medium">Adobe Premiere</span>
+                        <span className="text-gray-900 font-bold">Figma</span> |{" "}
+                        <span className="text-gray-900 font-bold">Postman</span> |{" "}
+                        <span className="text-gray-900 font-bold">Clerk</span> |{" "}
+                        <span className="text-gray-900 font-bold">Socket.io</span> |{" "}
+                        <span className="text-gray-700 font-medium">ChatGPT</span> |{" "}
+                        <span className="text-gray-700 font-medium">keil</span> |{" "}
+                        <span className="text-gray-700 font-medium">LT Spice</span> |{" "}
+                        <span className="text-gray-700 font-medium">Autocad</span> |{" "}
+                        <span className="text-gray-700 font-medium">Canva</span>
                       </p>
                     </div>
                   </div>

@@ -1,73 +1,75 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, ExternalLink } from "lucide-react"
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Badge } from "@/components/ui/badge"
+// import { Calendar, MapPin, ExternalLink } from "lucide-react"
+import {Card, CardContent } from "@/components/ui/card"
+import { ExternalLink } from "lucide-react"
 import { useEffect, useState } from "react"
 
-const experiences = [
-  {
-    title: "Full Stack Developer Intern",
-    company: "TechCorp Solutions",
-    location: "Remote",
-    duration: "Jun 2024 - Present",
-    type: "Internship",
-    description:
-      "Working on developing scalable web applications using React and Node.js. Collaborated with senior developers to implement new features and optimize existing codebase.",
-    achievements: [
-      "Improved application performance by 30%",
-      "Implemented responsive design for mobile users",
-      "Contributed to 5+ major feature releases",
-    ],
-    tech: ["React", "Node.js", "MongoDB", "AWS"],
-  },
-  {
-    title: "Frontend Developer",
-    company: "StartupXYZ",
-    location: "Bangalore, India",
-    duration: "Jan 2024 - May 2024",
-    type: "Freelance",
-    description:
-      "Developed user interfaces for a fintech startup, focusing on creating intuitive and accessible designs for financial dashboards.",
-    achievements: [
-      "Built 10+ responsive components",
-      "Reduced load time by 40%",
-      "Implemented accessibility standards",
-    ],
-    tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Chart.js"],
-  },
-]
+// const experiences = [
+//   {
+//     title: "Full Stack Developer Intern",
+//     company: "TechCorp Solutions",
+//     location: "Remote",
+//     duration: "Jun 2024 - Present",
+//     type: "Internship",
+//     description:
+//       "Working on developing scalable web applications using React and Node.js. Collaborated with senior developers to implement new features and optimize existing codebase.",
+//     achievements: [
+//       "Improved application performance by 30%",
+//       "Implemented responsive design for mobile users",
+//       "Contributed to 5+ major feature releases",
+//     ],
+//     tech: ["React", "Node.js", "MongoDB", "AWS"],
+//   },
+//   {
+//     title: "Frontend Developer",
+//     company: "StartupXYZ",
+//     location: "Bangalore, India",
+//     duration: "Jan 2024 - May 2024",
+//     type: "Freelance",
+//     description:
+//       "Developed user interfaces for a fintech startup, focusing on creating intuitive and accessible designs for financial dashboards.",
+//     achievements: [
+//       "Built 10+ responsive components",
+//       "Reduced load time by 40%",
+//       "Implemented accessibility standards",
+//     ],
+//     tech: ["Vue.js", "TypeScript", "Tailwind CSS", "Chart.js"],
+//   },
+// ]
 
-const certifications = [
-  {
-    title: "AWS Certified Developer Associate",
-    issuer: "Amazon Web Services",
-    date: "Dec 2024",
-    credentialId: "AWS-CDA-2024-001",
-    link: "#",
-  },
-  {
-    title: "Full Stack Web Development",
-    issuer: "freeCodeCamp",
-    date: "Nov 2024",
-    credentialId: "FCC-FSWD-2024",
-    link: "#",
-  },
-  {
-    title: "Machine Learning Specialization",
-    issuer: "Coursera (Stanford)",
-    date: "Oct 2024",
-    credentialId: "COURSERA-ML-2024",
-    link: "#",
-  },
-  {
-    title: "React Developer Certification",
-    issuer: "Meta",
-    date: "Sep 2024",
-    credentialId: "META-REACT-2024",
-    link: "#",
-  },
-]
+// const certifications = [
+//   {
+//     title: "AWS Certified Developer Associate",
+//     issuer: "Amazon Web Services",
+//     date: "Dec 2024",
+//     credentialId: "AWS-CDA-2024-001",
+//     link: "#",
+//   },
+//   {
+//     title: "Full Stack Web Development",
+//     issuer: "freeCodeCamp",
+//     date: "Nov 2024",
+//     credentialId: "FCC-FSWD-2024",
+//     link: "#",
+//   },
+//   {
+//     title: "Machine Learning Specialization",
+//     issuer: "Coursera (Stanford)",
+//     date: "Oct 2024",
+//     credentialId: "COURSERA-ML-2024",
+//     link: "#",
+//   },
+//   {
+//     title: "React Developer Certification",
+//     issuer: "Meta",
+//     date: "Sep 2024",
+//     credentialId: "META-REACT-2024",
+//     link: "#",
+//   },
+// ]
 
 export default function ExperiencePage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -77,7 +79,7 @@ export default function ExperiencePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header Section - Google Material Theme */}
       <div
         className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 m-6 rounded-3xl ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
@@ -113,9 +115,9 @@ export default function ExperiencePage() {
       </div>
 
       <div className="relative -mt-24 px-4 lg:px-8">
-        <div className="max-w-6xl mx-auto space-y-12 pt-32">
+        <div className="max-w-6xl mx-auto space-y-6 pt-32 pb-16">
           {/* Work Experience */}
-          <section className="space-y-8">
+          <section>
             <h2
               className={`text-3xl font-bold text-gray-900 flex items-center gap-3 transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"}`}
             >
@@ -124,7 +126,7 @@ export default function ExperiencePage() {
               ></div>
               Work Experience
             </h2>
-            <div className="space-y-8">
+            {/* <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <Card
                   key={index}
@@ -242,7 +244,100 @@ export default function ExperiencePage() {
                   </CardContent>
                 </Card>
               ))}
+            </div> */}
+          <div
+            className={`text-center py-16 transition-all duration-1000 delay-2000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <div
+              className={`bg-white shadow-sm border border-gray-200 rounded-3xl overflow-hidden transition-all duration-1000 hover:shadow-lg hover:scale-105 hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
+              style={{
+                transitionDelay: isLoaded ? "0ms" : "800ms",
+              }}
+            >
+              <div className="p-8 lg:p-12">
+                {/* Header with icon */}
+                <div
+                  className={`flex items-center justify-center mb-6 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                  style={{
+                    transitionDelay: "900ms",
+                  }}
+                >
+                  {/* <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
+                    <svg
+                      className="w-8 h-8 text-blue-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div> */}
+                </div>
+
+                {/* Title */}
+                <h3
+                  className={`text-2xl font-bold text-gray-900 text-center mb-4 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                  style={{
+                    transitionDelay: "1000ms",
+                  }}
+                >
+                  Ready to Make an Impact
+                </h3>
+
+                {/* Main content */}
+                <div
+                  className={`bg-blue-50 rounded-2xl p-6 border border-blue-100 mb-6 transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                  style={{
+                    transitionDelay: "1100ms",
+                  }}
+                >
+                  <p className="text-gray-700 text-center leading-relaxed mb-4">
+                    While I&apos;m at the beginning of my professional journey, I&apos;ve been building a strong foundation
+                    through
+                    <span className="font-medium text-gray-900"> academic excellence</span>,
+                    <span className="font-medium text-gray-900"> hands-on projects</span>, and
+                    <span className="font-medium text-gray-900"> competitive programming</span>.
+                  </p>
+                  <p className="text-gray-700 text-center leading-relaxed">
+                    I&apos;m actively seeking opportunities to contribute to innovative teams and real-world challenges where
+                    I can apply my technical skills and passion for problem-solving.
+                  </p>
+                </div>
+
+                {/* Call to action */}
+                <div
+                  className={`text-center transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                  style={{
+                    transitionDelay: "1300ms",
+                  }}
+                >
+                  <div className="flex items-center justify-center gap-2 text-indigo-600 font-medium">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span>Available for Internships & Entry-Level Positions</span>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
           </section>
 
           {/* Certifications */}
@@ -255,7 +350,7 @@ export default function ExperiencePage() {
               ></div>
               Certifications
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            {/* <div className="grid md:grid-cols-2 gap-8">
               {certifications.map((cert, index) => (
                 <Card
                   key={index}
@@ -315,29 +410,34 @@ export default function ExperiencePage() {
                   </CardContent>
                 </Card>
               ))}
+            </div> */}
+            <div
+              className={`flex flex-col items-center justify-center py-6 transition-all duration-1000 delay-1200 w-full ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            >
+              <Card className="bg-white shadow-sm border border-gray-200 rounded-3xl hover:shadow-lg hover:scale-105 transition-all duration-200 w-full">
+              <CardContent className="p-8 flex flex-col items-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <ExternalLink className="w-5 h-5 text-blue-600" />
+                View All Certificates
+                </h3>
+                <p className="text-gray-700 text-center mb-4">
+                For verification and more details, you can view all my certificates in one place.
+                </p>
+                <a
+                href="https://drive.google.com/drive/folders/1D4DvebvTci2uiF4xD70VPxywzYuj-beF?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600  hover:bg-blue-700 text-white rounded-2xl transition-all duration-200 hover:scale-105  font-medium"
+                >
+                <ExternalLink className="w-4 h-4" />
+                Google Drive Certificates Folder
+                </a>
+              </CardContent>
+              </Card>
             </div>
           </section>
 
-          {/* Bottom Section */}
-          <div
-            className={`text-center py-16 transition-all duration-1000 delay-2000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-          >
-            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to collaborate?</h3>
-              <p className="text-gray-600 mb-6">
-                I'm always open to discussing new opportunities and exciting projects. Let's connect and build something
-                amazing together.
-              </p>
-              <div className="flex gap-4 justify-center">
-                <Badge className="bg-blue-50 text-indigo-700 border border-blue-200 px-4 py-2">
-                  Available for opportunities
-                </Badge>
-                <Badge className="bg-green-50 text-green-700 border border-green-200 px-4 py-2">
-                  Open to freelance
-                </Badge>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

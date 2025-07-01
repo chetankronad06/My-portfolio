@@ -12,67 +12,64 @@ const projects = [
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce platform with user authentication, payment integration, and admin dashboard. Built with modern technologies for optimal performance.",
-    image: "/placeholder.svg?height=200&width=400",
-    tech: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+    image: "/projects/ecommerce.png?height=200&width=400",
+    tech: ["Nextjs", "clerk", "Sanity", "Stripe", "Tailwind CSS","zustand","shadcnui"],
     features: ["User Authentication", "Payment Gateway", "Admin Dashboard", "Responsive Design"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "Full Stack",
+    liveUrl: "https://e-commerce-nu-eight-15.vercel.app/",
+    githubUrl: "https://github.com/chetankronad06/E-commerce",
   },
   {
-    title: "AI Image Recognition App",
+    title: "ChatAt-Dsu",
     description:
-      "An AI-powered application that uses YOLOv8 for real-time object detection and classification. Includes a web interface for easy interaction.",
-    image: "/placeholder.svg?height=200&width=400",
-    tech: ["Python", "YOLOv8", "Flask", "OpenCV", "React"],
+      "A real-time campus social platform where DSU users can log in, connect with fellow students by sending friend requests, and chat seamlessly. Built with WebSockets, it enables instant messaging and active presence updates.",
+    image: "/projects/chatatdsu.png?height=200&width=400",
+    tech: ["Nextjs", "Websocket", "Tanstack Query", "clerk", "supabase", "shadcnui"],
     features: ["Real-time Detection", "Multiple Object Classes", "Confidence Scoring", "Image Upload"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "AI/ML",
+    liveUrl: "https://chat-at-dsu.vercel.app/",
+    githubUrl: "https://github.com/Yeshwanth-King/ChatAtDSU",
   },
-  {
-    title: "Task Management Dashboard",
-    description:
-      "A comprehensive task management system with team collaboration features, real-time updates, and analytics dashboard.",
-    image: "/placeholder.svg?height=200&width=400",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
-    features: ["Real-time Updates", "Team Collaboration", "Analytics", "File Attachments"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "Web App",
-  },
-  {
-    title: "Blockchain Voting System",
-    description:
-      "A decentralized voting application built on Ethereum blockchain ensuring transparency and security in the voting process.",
-    image: "/placeholder.svg?height=200&width=400",
-    tech: ["Solidity", "Web3.js", "React", "Ethereum", "MetaMask"],
-    features: ["Decentralized", "Transparent", "Secure", "Smart Contracts"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "Blockchain",
-  },
-  {
-    title: "Weather Forecast App",
-    description:
-      "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-    image: "/placeholder.svg?height=200&width=400",
-    tech: ["React Native", "TypeScript", "Weather API", "Maps API"],
-    features: ["Location-based", "Interactive Maps", "Push Notifications", "Offline Support"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "Mobile",
-  },
+  // {
+  //   title: "Task Management Dashboard",
+  //   description:
+  //     "A comprehensive task management system with team collaboration features, real-time updates, and analytics dashboard.",
+  //   image: "/placeholder.svg?height=200&width=400",
+  //   tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Socket.io"],
+  //   features: ["Real-time Updates", "Team Collaboration", "Analytics", "File Attachments"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   category: "Web App",
+  // },
+  // {
+  //   title: "Blockchain Voting System",
+  //   description:
+  //     "A decentralized voting application built on Ethereum blockchain ensuring transparency and security in the voting process.",
+  //   image: "/placeholder.svg?height=200&width=400",
+  //   tech: ["Solidity", "Web3.js", "React", "Ethereum", "MetaMask"],
+  //   features: ["Decentralized", "Transparent", "Secure", "Smart Contracts"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   category: "Blockchain",
+  // },
+  // {
+  //   title: "Weather Forecast App",
+  //   description:
+  //     "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
+  //   image: "/placeholder.svg?height=200&width=400",
+  //   tech: ["React Native", "TypeScript", "Weather API", "Maps API"],
+  //   features: ["Location-based", "Interactive Maps", "Push Notifications", "Offline Support"],
+  //   liveUrl: "#",
+  //   githubUrl: "#",
+  //   category: "Mobile",
+  // },
   {
     title: "Portfolio Website",
     description:
       "A responsive portfolio website showcasing projects and skills with modern design and smooth animations.",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/projects/portfolio.png?height=200&width=400",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     features: ["Responsive Design", "Dark Mode", "Animations", "SEO Optimized"],
-    liveUrl: "#",
-    githubUrl: "#",
-    category: "Web Design",
+    liveUrl: "https://my-portfolio-nu-six-70.vercel.app/",
+    githubUrl: "https://github.com/chetankronad06/My-portfolio",
   },
 ]
 
@@ -84,7 +81,7 @@ export default function ProjectsPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header Section - Google Material Theme */}
       <div
         className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 rounded-3xl m-6 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
@@ -108,12 +105,12 @@ export default function ProjectsPage() {
             <h1
               className={`text-4xl lg:text-5xl font-medium text-gray-900 transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              My Projects
+              Hands-on Work & Prototypes
             </h1>
             <p
               className={`text-lg text-blue-600 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              Here are some of the projects I've worked on recently
+              Here are some of the projects I&apos;ve worked on recently
             </p>
           </div>
         </div>
@@ -131,7 +128,7 @@ export default function ProjectsPage() {
                   transitionDelay: isLoaded ? "0ms" : `${600 + index * 150}ms`,
                 }}
               >
-                <div className="relative overflow-hidden">
+                <div className="overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -139,16 +136,6 @@ export default function ProjectsPage() {
                     height={200}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-200"
                   />
-                  <div className="absolute top-4 right-4">
-                    <Badge
-                      className={`bg-blue-50 text-blue-700 border border-blue-200 transition-all duration-300 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
-                      style={{
-                        transitionDelay: `${800 + index * 150}ms`,
-                      }}
-                    >
-                      {project.category}
-                    </Badge>
-                  </div>
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                 </div>
@@ -189,7 +176,7 @@ export default function ProjectsPage() {
                         <Badge
                           key={techIndex}
                           variant="outline"
-                          className="text-xs bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 transition-colors duration-200"
+                          className="text-xs bg-blue-50 text-gray-700 border-blue-200 hover:bg-blue-100 transition-colors duration-200"
                         >
                           {tech}
                         </Badge>
@@ -204,7 +191,7 @@ export default function ProjectsPage() {
                     }}
                   >
                     <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
-                      <div className="w-1 h-4 bg-green-500 rounded-full"></div>
+                      <div className="w-1 h-4 bg-blue-500 rounded-full"></div>
                       Key Features
                     </h4>
                     <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100">
@@ -228,7 +215,7 @@ export default function ProjectsPage() {
                     <Button
                       size="sm"
                       asChild
-                      className="bg-indigo-500 hover:bg-indigo-600 text-white rounded-2xl flex-1 transition-all duration-200 hover:scale-105"
+                      className="bg-blue-500 hover:bg-blue-600 text-white rounded-2xl flex-1 transition-all duration-200 hover:scale-105"
                     >
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
@@ -259,11 +246,11 @@ export default function ProjectsPage() {
             <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
               <h3 className="text-2xl  text-gray-900 font-bold mb-4">Want to see more?</h3>
               <p className="text-gray-600 mb-6">
-                These are just a few highlights from my portfolio. I'm always working on new projects and exploring
+                These are just a few highlights from my portfolio. I&apos;m always working on new projects and exploring
                 different technologies.
               </p>
                 <Button
-                className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl px-8 transition-all duration-200 hover:scale-105"
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-8 transition-all duration-200 hover:scale-105"
                 asChild
                 >
                 <a

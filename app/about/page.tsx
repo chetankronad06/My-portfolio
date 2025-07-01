@@ -15,10 +15,10 @@ export default function AboutPage() {
 
   return (
     <PageWrapper>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen ">
         {/* Header Section - Google Material Theme */}
         <div
-          className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+          className={`relative h-64 bg-gradient-to-r from-blue-50 to-indigo-50 overflow-hidden transition-all duration-1000 rounded-3xl ml-6 mr-6 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
         >
           {/* Optional Background Image - Commented Out */}
           {/* 
@@ -54,45 +54,89 @@ export default function AboutPage() {
               className={`bg-white shadow-sm border border-gray-200 rounded-3xl overflow-hidden mb-8 mx-auto max-w-3xl transition-all duration-1000 delay-200 ${isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}
             >
               <CardContent className="p-0">
-              <div className="p-6 lg:p-8">
+              {/* Desktop/Tablet View */}
+              <div className="hidden sm:block">
+                <div className="p-6 lg:p-8">
                 <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
-                {/* Profile Image - Clean without decorative elements */}
-                <div className="relative flex-shrink-0">
+                  {/* Profile Image */}
+                  <div className="relative flex-shrink-0">
                   <div
-                  className={`w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden shadow-sm ring-1 ring-gray-200 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-12"}`}
+                    className={`w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden shadow-sm ring-1 ring-gray-200 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-12"}`}
                   >
-                  <Image
+                    <Image
                     src="/profile.jpg?height=160&width=160"
                     alt="Chetan Kalakappa Ronad"
                     width={160}
                     height={160}
                     className="w-full h-full object-cover"
-                  />
+                    />
                   </div>
-                </div>
-
-                {/* Profile Info - Simplified */}
-                <div className="flex-1 space-y-4">
+                  </div>
+                  {/* Profile Info */}
+                  <div className="flex-1 space-y-4">
                   <div>
                     <h1
-                      className={`text-3xl lg:text-4xl font-medium text-gray-900 mb-2 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+                    className={`text-3xl lg:text-4xl font-medium text-gray-900 mb-2 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
                     >
-                      Chetan Kalakappa Ronad
+                    Chetan Kalakappa Ronad
                     </h1>
                     <p
-                      className={`text-xl text-blue-600 font-normal mb-4 transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+                    className={`text-xl text-blue-600 font-normal mb-4 transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
                     >
-                      Full-Stack Developer & AI Enthusiast
+                    Full-Stack Developer & AI Enthusiast
                     </p>
                   </div>
                   <div
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-200 text-green-700 font-semibold text-sm shadow-sm transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+                    className={`inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 shadow-sm transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
                   >
-                    <span className="relative flex h-3 w-3">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    Available for work
+                    <div className="relative flex items-center">
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                      </span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-gray-900 font-semibold text-sm">Open to Opportunities</span>
+                      <span className="text-blue-600 text-xs">Let’s build something amazing together</span>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+              {/* Mobile View */}
+              <div className="block sm:hidden">
+                <div className="p-4 flex flex-col items-center gap-4">
+                <div
+                  className={`w-24 h-24 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden shadow-sm ring-1 ring-gray-200 transition-all duration-1000 delay-400 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-12"}`}
+                >
+                  <Image
+                  src="/profile.jpg?height=96&width=96"
+                  alt="Chetan Kalakappa Ronad"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center space-y-2">
+                  <h1
+                  className={`text-2xl font-medium text-gray-900 transition-all duration-1000 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
+                  >
+                  Chetan Kalakappa Ronad
+                  </h1>
+                  <p
+                  className={`text-base text-blue-600 font-normal transition-all duration-1000 delay-600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
+                  >
+                  Full-Stack Developer & AI Enthusiast
+                  </p>
+                  <div
+                  className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 shadow-sm transition-all duration-1000 delay-700 ${isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}
+                  >
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span className="text-gray-800 font-semibold text-xs">Open to Opportunities</span>
                   </div>
                 </div>
                 </div>
@@ -101,7 +145,7 @@ export default function AboutPage() {
             </Card>
 
             {/* Dynamic Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 ">
               {/* About Me Section - Spans 8 columns */}
               <div className="lg:col-span-8">
                 <Card
@@ -213,9 +257,9 @@ export default function AboutPage() {
                       Education
                     </h2>
                     <div className="space-y-6">
-                      <div
+                        <div
                         className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1300 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
-                      >
+                        >
                         <div
                           className={`p-3 bg-blue-500 rounded-2xl transition-all duration-1000 delay-1400 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 rotate-180"}`}
                         >
@@ -223,27 +267,32 @@ export default function AboutPage() {
                         </div>
                         <div className="flex-1">
                           <h3
-                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          className={`font-medium text-indigo-600 mb-1 transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
-                            Bachelor of Technology in Computer Science
+                          Bachelor of Technology in Computer Science
                           </h3>
                           <p
-                            className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
-                            Dayananda Sagar University
+                          Dayananda Sagar University
                           </p>
                           <p
-                            className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
-                            2023 - 2027
+                          2023 - 2027
                           </p>
                           <p
-                            className={`text-sm text-gray-700 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
-                            Currently pursuing a degree in Computer Science, with a strong focus on software engineering, data structures, and algorithms. Have completed several impactful projects in web development.
+                          CGPA: 8.92 / 10
+                          </p>
+                          <p
+                          className={`text-sm text-gray-700 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                          Currently pursuing a degree in Computer Science, with a strong focus on software engineering, data structures, and algorithms. Have completed several impactful projects in web development.
                           </p>
                         </div>
-                      </div>
+                        </div>
 
                       <div
                         className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1400 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
@@ -255,19 +304,24 @@ export default function AboutPage() {
                         </div>
                         <div className="flex-1">
                           <h3
-                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                            className={`font-medium text-indigo-600 mb-1 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
                             Pre-University College
                           </h3>
                           <p
                             className={`text-gray-900 font-bold mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
-                           Jagadguru Tontadarya P.U. College, Gadag
+                           KLE Societies Jagadguru Tontadarya P.U. College, Gadag
                           </p>
                           <p
                             className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
                             2021-2023
+                          </p>
+                          <p
+                          className={`text-sm text-gray-600 mb-2 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                          >
+                          92.33 %
                           </p>
                           <p
                             className={`text-sm text-gray-700 transition-all duration-1000 delay-1900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
@@ -300,13 +354,13 @@ export default function AboutPage() {
                         className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1400 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
                       >
                         <div
-                          className={`p-3 bg-indigo-500 rounded-2xl transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
+                          className={`p-3 bg-blue-500 rounded-2xl transition-all duration-1000 delay-1500 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
                         >
                           <Award className="h-6 w-6 text-white" />
                         </div>
                         <div className="flex-1">
                           <h3
-                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                            className={`font-medium text-indigo-600 mb-1 transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
                             Finalist
                           </h3>
@@ -327,13 +381,13 @@ export default function AboutPage() {
                         className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1500 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
                       >
                         <div
-                          className={`p-3 bg-indigo-500 rounded-2xl transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
+                          className={`p-3 bg-blue-500 rounded-2xl transition-all duration-1000 delay-1600 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
                         >
                           <Star className="h-6 w-6 text-white" />
                         </div>
                         <div className="flex-1">
                           <h3
-                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                            className={`font-medium text-indigo-600 mb-1 transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
                             Bronze Medal
                           </h3>
@@ -354,13 +408,13 @@ export default function AboutPage() {
                         className={`flex items-start space-x-4 p-6 bg-blue-50 rounded-2xl border border-blue-100 transition-all duration-1000 delay-1600 hover:scale-105 hover:shadow-md hover:transition-all hover:duration-200 ${isLoaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
                       >
                         <div
-                          className={`p-3 bg-indigo-500 rounded-2xl transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
+                          className={`p-3 bg-blue-500 rounded-2xl transition-all duration-1000 delay-1700 ${isLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-180"}`}
                         >
                           <Users className="h-6 w-6 text-white" />
                         </div>
                         <div className="flex-1">
                           <h3
-                            className={`font-medium text-gray-900 mb-1 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+                            className={`font-medium text-indigo-600 mb-1 transition-all duration-1000 delay-1800 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
                           >
                             Participation
                           </h3>
