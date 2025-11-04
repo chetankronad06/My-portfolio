@@ -18,16 +18,17 @@ const projects = [
     liveUrl: "https://e-commerce-nu-eight-15.vercel.app/",
     githubUrl: "https://github.com/chetankronad06/E-commerce",
   },
-  {
-    title: "ChatAt-Dsu",
-    description:
-      "A real-time campus social platform where DSU users can log in, connect with fellow students by sending friend requests, and chat seamlessly. Built with WebSockets, it enables instant messaging and active presence updates.",
-    image: "/projects/chatatdsu.png?height=200&width=400",
-    tech: ["Nextjs", "Websocket", "Tanstack Query", "clerk", "supabase", "shadcnui"],
-    features: ["Real-time Detection", "Multiple Object Classes", "Confidence Scoring", "Image Upload"],
-    liveUrl: "https://chat-at-dsu.vercel.app/",
-    githubUrl: "https://github.com/Yeshwanth-King/ChatAtDSU",
-  },
+{
+  title: "Trekker",
+  description:
+    "A group trip expense-tracking web app that automatically logs expenses from UPI screenshots using OCR and displays them in a shared feed for easy settlement.",
+  image: "/projects/trekker.png?height=200&width=400",
+  tech: ["Nextjs", "Clerk", "Supabase", "Prisma", "Tailwind CSS","Tesseract js","websockets"],
+  features: ["Trip Creation & Join", "Automatic Expense Logging", "OCR Integration", "Final Settlement Calculation"],
+  liveUrl: "https://trekkerhub.vercel.app/",
+  githubUrl: "https://github.com/chetankronad06/trekker",
+},
+
   // {
   //   title: "Task Management Dashboard",
   //   description:
