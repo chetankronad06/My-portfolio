@@ -263,16 +263,12 @@ export default function ResumePage() {
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">ChatAt-DSU</h3>
+                      <h3 className="font-semibold text-gray-900">Trekker</h3>
                       <p className="text-sm text-gray-700">
-
-                        A real-time campus social platform where DSU users can log in, connect with fellow students by sending friend requests, and chat seamlessly. Built with WebSockets, it enables instant messaging and active presence updates.
-                        <span className="text-indigo-500 ml-2">Nextjs,
-                          Websocket,
-                          Tanstack Query,
-                          clerk,
-                          supabase,
-                          shadcnui</span>
+                        A group trip expense-tracking web app that automatically logs expenses from UPI screenshots using OCR and displays them in a shared feed for easy settlement.
+                        <span className="text-indigo-500 ml-2">
+                          Next.js, Clerk, Supabase, Prisma, Tailwind CSS
+                        </span>
                       </p>
                     </div>
                     <div>
@@ -310,27 +306,27 @@ export default function ResumePage() {
                   className={`transition-all duration-1000 delay-1900 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 >
                   <h2 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-blue-500 pb-1">
-                  ACHIEVEMENTS & CERTIFICATIONS
+                    ACHIEVEMENTS & CERTIFICATIONS
                   </h2>
                   <div className="space-y-4 text-sm text-gray-700">
-                  <div>
-                    <p className="font-semibold text-indigo-500">Finalist – Hack-in-bad 2025</p>
-                    <p>
-                    Selected as a finalist in Hack-in-bad, a prestigious hackathon conducted by Techflix at Dayananda Sagar University, for developing an innovative tech solution.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-indigo-500">Bronze Medal – DevHack 2025</p>
-                    <p>
-                    Secured a Bronze Medal as a finalist in DevHack 2025, part of Parsec 5.0 at IIT Dharwad, for creating a standout solution among top-tier student teams.
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-indigo-500">Participation – NASA Space Apps Challenge 2024</p>
-                    <p>
-                    Participated in the globally recognized NASA Space Apps Challenge 2024, gaining valuable experience in collaborative problem-solving and space-related innovation.
-                    </p>
-                  </div>
+                    <div>
+                      <p className="font-semibold text-indigo-500">Finalist – Hack-in-bad 2025</p>
+                      <p>
+                        Selected as a finalist in Hack-in-bad, a prestigious hackathon conducted by Techflix at Dayananda Sagar University, for developing an innovative tech solution.
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-indigo-500">Bronze Medal – DevHack 2025</p>
+                      <p>
+                        Secured a Bronze Medal as a finalist in DevHack 2025, part of Parsec 5.0 at IIT Dharwad, for creating a standout solution among top-tier student teams.
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-indigo-500">Participation – NASA Space Apps Challenge 2024</p>
+                      <p>
+                        Participated in the globally recognized NASA Space Apps Challenge 2024, gaining valuable experience in collaborative problem-solving and space-related innovation.
+                      </p>
+                    </div>
                   </div>
                 </section>
               </CardContent>
