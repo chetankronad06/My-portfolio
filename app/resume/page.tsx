@@ -81,7 +81,7 @@ export default function ResumePage() {
                     </div>
                     <div className="flex items-center gap-1">
                       <Globe className="h-4 w-4" />
-                      my-portfolio-nu-six-70.vercel.app/
+                      httpschetankronad.vercel.app
                     </div>
                   </div>
                   <div className="flex justify-center gap-4 mt-4">
