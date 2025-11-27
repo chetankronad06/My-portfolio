@@ -15,7 +15,7 @@ const projects = [
     image: "/projects/ecommerce.png?height=200&width=400",
     tech: ["Nextjs", "clerk", "Sanity", "Stripe", "Tailwind CSS","zustand","shadcnui"],
     features: ["User Authentication", "Payment Gateway", "Admin Dashboard", "Responsive Design"],
-    liveUrl: "https://e-commerce-nu-eight-15.vercel.app/",
+    liveUrl: "https://shopwithchetan.vercel.app/",
     githubUrl: "https://github.com/chetankronad06/E-commerce",
   },
 {
