@@ -3,6 +3,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react"
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
+import { toast } from "sonner"
 import { SectionWrapper } from "@/components/section-wrapper"
 import { FloatingInput } from "@/components/floating-input"
 import { site } from "@/lib/data"
@@ -10,6 +11,7 @@ import { site } from "@/lib/data"
 export function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" })
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+  const [statusMessage, setStatusMessage] = useState("")
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -18,23 +20,56 @@ export function Contact() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setStatus("sending")
+    setStatusMessage("")
+
     try {
       const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       })
-      if (res.ok) {
-        setStatus("sent")
-        setForm({ name: "", email: "", subject: "", message: "" })
-        setTimeout(() => setStatus("idle"), 4000)
-      } else {
-        setStatus("error")
-        setTimeout(() => setStatus("idle"), 3000)
+
+      const data = (await res.json().catch(() => ({}))) as {
+        success?: boolean
+        error?: string
       }
-    } catch {
+
+      if (res.ok && data.success) {
+        setStatus("sent")
+        setStatusMessage("Message sent successfully. I'll get back to you soon.")
+        toast.success("Message sent!", {
+          description: "Thanks for reaching out. I'll reply as soon as I can.",
+        })
+        setForm({ name: "", email: "", subject: "", message: "" })
+        setTimeout(() => {
+          setStatus("idle")
+          setStatusMessage("")
+        }, 5000)
+        return
+      }
+
+      const errorText =
+        data.error ||
+        (res.status === 503
+          ? "Email is not configured on the server yet. Please use the email link on the left."
+          : "Something went wrong. Please try again or email me directly.")
+
       setStatus("error")
-      setTimeout(() => setStatus("idle"), 3000)
+      setStatusMessage(errorText)
+      toast.error("Could not send message", { description: errorText })
+      setTimeout(() => {
+        setStatus("idle")
+        setStatusMessage("")
+      }, 6000)
+    } catch {
+      const errorText = "Network error. Check your connection and try again."
+      setStatus("error")
+      setStatusMessage(errorText)
+      toast.error("Could not send message", { description: errorText })
+      setTimeout(() => {
+        setStatus("idle")
+        setStatusMessage("")
+      }, 6000)
     }
   }
 
@@ -110,12 +145,23 @@ export function Contact() {
             onChange={handleChange}
           />
 
+          {statusMessage && (
+            <p
+              role="status"
+              className={`font-mono-label text-xs ${
+                status === "sent" ? "text-emerald-400" : "text-red-400"
+              }`}
+            >
+              {statusMessage}
+            </p>
+          )}
+
           <button
             type="submit"
             disabled={status === "sending" || status === "sent"}
             className={`btn-primary w-full transition-colors duration-500 ${
-              status === "sent" ? "bg-emerald-500 text-white" : ""
-            } ${status === "error" ? "bg-red-600 text-white" : ""}`}
+              status === "sent" ? "!bg-emerald-500 !text-white" : ""
+            } ${status === "error" ? "!bg-red-600 !text-white" : ""}`}
           >
             {status === "sent" ? (
               <>

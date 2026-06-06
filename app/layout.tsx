@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Cormorant_Garamond, DM_Mono, Sora } from "next/font/google"
+import { Providers } from "@/components/providers"
 import { site } from "@/lib/data"
 import "./globals.css"
 
@@ -52,7 +53,7 @@ export default function RootLayout({
       className={`${cormorant.variable} ${dmMono.variable} ${sora.variable} dark`}
     >
       <body className="bg-luxury-bg text-luxury-fg antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
