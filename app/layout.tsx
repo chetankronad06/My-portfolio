@@ -1,26 +1,44 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Roboto } from "next/font/google"
+import { Cormorant_Garamond, DM_Mono, Sora } from "next/font/google"
+import { site } from "@/lib/data"
 import "./globals.css"
-import { Sidebar } from "@/components/sidebar"
-import { MobileNav } from "@/components/mobile-nav"
-import { Loading } from "@/components/loading"
-import { Toaster } from "sonner"
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600"],
 })
 
-const roboto = Roboto({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-roboto",
+  variable: "--font-dm-mono",
+  weight: ["400", "500"],
+})
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  weight: ["300", "400", "500", "600"],
 })
 
 export const metadata: Metadata = {
-  title: "Chetan Kalakappa Ronad - Full Stack Developer",
-  description: "A junior fullstack developer focused on Web Development, UX/UI Design, Blockchain and AI/ML",
+  metadataBase: new URL("https://chetankronad.vercel.app"),
+  title: `${site.name} — Full Stack Developer`,
+  description: site.description,
+  openGraph: {
+    title: `${site.name} — Full Stack Developer`,
+    description: site.description,
+    type: "website",
+    locale: "en_US",
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — Full Stack Developer`,
+    description: site.description,
+    images: [site.ogImage],
+  },
 }
 
 export default function RootLayout({
@@ -29,24 +47,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto.variable}`}>
-      <body>
-        <Toaster richColors closeButton expand/>
-        <Loading />
-        <div className="min-h-screen bg-white">
-          {/* Desktop Sidebar */}
-          <div className="hidden lg:block">
-            <Sidebar />
-          </div>
-
-          {/* Mobile Navigation */}
-            <div className="lg:hidden sticky top-0 z-50 bg-white">
-            <MobileNav />
-            </div>
-
-          {/* Main Content */}
-          <main className="lg:ml-64 min-h-screen">{children}</main>
-        </div>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${dmMono.variable} ${sora.variable} dark`}
+    >
+      <body className="bg-luxury-bg text-luxury-fg antialiased">
+        {children}
       </body>
     </html>
   )

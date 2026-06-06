@@ -1,7 +1,19 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+  redirects: async () => [
+    { source: "/about", destination: "/#about", permanent: false },
+    { source: "/projects", destination: "/#projects", permanent: false },
+    { source: "/contact", destination: "/#contact", permanent: false },
+  ],
+}
 
-export default nextConfig;
+export default nextConfig
