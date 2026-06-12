@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     secure: true,
     auth: {
       user: smtpEmail,
-      pass: smtpPassword.replace(/\s/g, ""),
+      pass: smtpPassword.replace(/\s/g, "").replace(/^["']|["']$/g, ""),
     },
   })
 

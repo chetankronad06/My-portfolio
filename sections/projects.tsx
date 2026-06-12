@@ -29,17 +29,26 @@ export function Projects() {
                 transition={{ delay: i * 0.1, duration: 0.7 }}
               >
                 <div
-                  className={`relative min-h-[260px] md:min-h-full ${
+                  className={`flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12 bg-[#0d0d0d]/90 relative min-h-[300px] md:min-h-full ${
                     imageOnRight ? "md:order-2" : "md:order-1"
                   }`}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                  <div className="relative w-full aspect-[16/10] overflow-hidden rounded-xl border border-[#f5f0eb12] bg-[#0a0a0a] shadow-2xl flex flex-col">
+                    <div className="flex items-center h-6 px-3 bg-[#121212] border-b border-[#f5f0eb08] gap-1.5 shrink-0 select-none">
+                      <div className="h-1.5 w-1.5 rounded-full bg-red-500/50" />
+                      <div className="h-1.5 w-1.5 rounded-full bg-yellow-500/50" />
+                      <div className="h-1.5 w-1.5 rounded-full bg-green-500/50" />
+                    </div>
+                    <div className="relative flex-1 w-full overflow-hidden">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div
@@ -62,9 +71,20 @@ export function Projects() {
                     {project.title}
                   </h3>
 
-                  <p className="mt-5 max-w-lg font-body text-base leading-relaxed text-luxury-muted md:text-lg">
+                  <p className="mt-5 max-w-lg font-body text-base leading-relaxed text-luxury-muted md:text-lg font-medium">
                     {project.description}
                   </p>
+
+                  {project.points && (
+                    <ul className="mt-6 space-y-3 font-body text-[14px] leading-relaxed text-luxury-muted">
+                      {project.points.map((point, index) => (
+                        <li key={index} className="flex gap-2 items-start">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-luxury-accent/60" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   <div className="mt-auto flex gap-8 pt-10">
                     <a
