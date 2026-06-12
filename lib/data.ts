@@ -1,6 +1,6 @@
 export const site = {
   name: "Chetan Kalakappa Ronad",
-  firstName: "Chetan",
+  firstName: "Chetan K Ronad",
   email: "chetankronad06@gmail.com",
   location: "Bangalore, India",
   github: "https://github.com/chetankronad06",
