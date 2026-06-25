@@ -148,6 +148,14 @@ export const education = [
 
 export const achievements = [
   {
+    title: "InfrX 2026 – Hackathon Winner",
+    description: "Won 3rd Place in the 10-hour hackathon hosted by Infrrd in collaboration with Dayananda Sagar University (DSU), exclusively for engineering students graduating in 2027 from selected colleges across Bangalore.",
+    tag: "Winner",
+    year: "2026",
+    wide: true,
+    featured: true,
+  },
+  {
     title: "Dev Hacks 6.0 – IIT Dharwad",
     description: "Selected as the 4th Runner-Up in the pitching round among participants nationwide.",
     tag: "Hackathon",
@@ -167,19 +175,5 @@ export const achievements = [
     tag: "Hackathon",
     year: "2026",
     wide: false,
-  },
-  {
-    title: "Smart India Hackathon",
-    description: "Selected in the internal university round to represent the university.",
-    tag: "Hackathon",
-    year: "2024",
-    wide: true,
-  },
-  {
-    title: "NASA Space Apps",
-    description: "Global challenge participant — collaborative space-tech innovation.",
-    tag: "Competition",
-    year: "2024",
-    wide: true,
   },
 ]
