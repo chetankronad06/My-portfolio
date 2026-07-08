@@ -128,7 +128,7 @@ export const education = [
     institution: "Dayananda Sagar University",
     location: "Bangalore, Karnataka",
     duration: "2023 — 2027",
-    grade: "8.94 CGPA",
+    grade: "8.99 CGPA",
   },
   {
     degree: "Pre-University College (Science)",
