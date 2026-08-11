@@ -154,6 +154,7 @@ export const achievements = [
     year: "2026",
     wide: true,
     featured: true,
+    certificateUrl: "https://drive.google.com/file/d/148DTizuR5DRoKk808Vl51FdnJurs7LHg/view?usp=sharing",
   },
   {
     title: "Dev Hacks 6.0 – IIT Dharwad",
@@ -161,6 +162,7 @@ export const achievements = [
     tag: "Hackathon",
     year: "2025",
     wide: true,
+    certificateUrl: "https://drive.google.com/file/d/1VZm8NucD2bcaBAJs7hEgeAGUXgrsAqY4/view?usp=sharing",
   },
   {
     title: "TechFlix Hackathon – DSU",
@@ -168,6 +170,7 @@ export const achievements = [
     tag: "Hackathon",
     year: "2025",
     wide: false,
+    certificateUrl: "https://drive.google.com/file/d/1qBcLecR3x5_NNMJ0GnH6EIUYFx6O4WiX/view?usp=sharing",
   },
   {
     title: "FusionX Hackathon – Presidency University",
@@ -175,5 +178,6 @@ export const achievements = [
     tag: "Hackathon",
     year: "2026",
     wide: false,
+    certificateUrl: "https://drive.google.com/file/d/1jJjMQeKjeTtfrg3uaV_n9vbSUCvMNrx7/view?usp=drive_link",
   },
 ]

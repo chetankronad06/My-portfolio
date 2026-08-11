@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { SectionWrapper } from "@/components/section-wrapper"
 import { achievements } from "@/lib/data"
-import { Trophy } from "lucide-react"
+import { Trophy, ExternalLink } from "lucide-react"
 
 export function Achievements() {
   const featuredAchievement = achievements.find((item) => "featured" in item && item.featured)
@@ -20,9 +20,12 @@ export function Achievements() {
         {/* Centered Glowing Victory Card */}
         {featuredAchievement && (
           <div className="mt-16 flex justify-center">
-            <motion.article
+            <motion.a
+              href={featuredAchievement.certificateUrl || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
               key={featuredAchievement.title}
-              className="achievement-card flex flex-col justify-between p-8 md:p-10 min-h-[240px] max-w-2xl w-full border border-luxury-accent/30 bg-gradient-to-br from-[#1c140a] via-[#111111] to-[#0a0a0a] shadow-[0_0_40px_rgba(245,166,35,0.06)] hover:border-luxury-accent hover:shadow-[0_0_50px_rgba(245,166,35,0.15)] transition-all duration-700 relative overflow-hidden group"
+              className="achievement-card flex flex-col justify-between p-8 md:p-10 min-h-[240px] max-w-2xl w-full border border-luxury-accent/30 bg-gradient-to-br from-[#1c140a] via-[#111111] to-[#0a0a0a] shadow-[0_0_40px_rgba(245,166,35,0.06)] hover:border-luxury-accent hover:shadow-[0_0_50px_rgba(245,166,35,0.15)] transition-all duration-700 relative overflow-hidden group cursor-pointer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -41,11 +44,14 @@ export function Achievements() {
                     <Trophy className="h-4 w-4 text-luxury-accent fill-luxury-accent/15 animate-pulse" />
                     {featuredAchievement.tag}
                   </span>
-                  {featuredAchievement.year && (
-                    <span className="font-mono-label text-xs text-luxury-muted font-medium">
-                      {featuredAchievement.year}
-                    </span>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {featuredAchievement.year && (
+                      <span className="font-mono-label text-xs text-luxury-muted font-medium">
+                        {featuredAchievement.year}
+                      </span>
+                    )}
+                    <ExternalLink className="h-3.5 w-3.5 text-luxury-muted group-hover:text-luxury-accent transition-colors duration-300" />
+                  </div>
                 </div>
                 <h3 className="mt-6 font-display text-3xl font-light text-luxury-fg leading-tight">
                   {featuredAchievement.title}
@@ -54,7 +60,7 @@ export function Achievements() {
               <p className="mt-6 font-body text-base leading-relaxed text-luxury-muted">
                 {featuredAchievement.description}
               </p>
-            </motion.article>
+            </motion.a>
           </div>
         )}
 
@@ -62,9 +68,12 @@ export function Achievements() {
         {otherAchievements.length > 0 && (
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {otherAchievements.map((item, i) => (
-              <motion.article
+              <motion.a
+                href={item.certificateUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
                 key={item.title}
-                className="achievement-card flex flex-col justify-between p-6 md:p-8 min-h-[220px] border border-[#f5f0eb08] bg-[#111111] hover:border-luxury-accent/30 transition-all duration-500"
+                className="achievement-card flex flex-col justify-between p-6 md:p-8 min-h-[220px] border border-[#f5f0eb08] bg-[#111111] hover:border-luxury-accent/30 transition-all duration-500 cursor-pointer group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -75,11 +84,14 @@ export function Achievements() {
                     <span className="font-mono-label text-[10px] uppercase tracking-[0.2em] text-luxury-accent font-semibold">
                       {item.tag}
                     </span>
-                    {item.year && (
-                      <span className="font-mono-label text-[10px] text-luxury-muted font-medium">
-                        {item.year}
-                      </span>
-                    )}
+                    <div className="flex items-center gap-1.5">
+                      {item.year && (
+                        <span className="font-mono-label text-[10px] text-luxury-muted font-medium">
+                          {item.year}
+                        </span>
+                      )}
+                      <ExternalLink className="h-3 w-3 text-luxury-muted group-hover:text-luxury-accent transition-colors duration-300" />
+                    </div>
                   </div>
                   <h3 className="mt-4 font-display text-2xl font-light text-luxury-fg leading-tight">
                     {item.title}
@@ -88,7 +100,7 @@ export function Achievements() {
                 <p className="mt-5 font-body text-sm leading-relaxed text-luxury-muted">
                   {item.description}
                 </p>
-              </motion.article>
+              </motion.a>
             ))}
           </div>
         )}
